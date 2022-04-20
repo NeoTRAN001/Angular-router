@@ -17,6 +17,12 @@ import { TimeInterceptor } from './interceptors/time.interceptor';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { HomeComponent } from './page/home/home.component';
 import { NotFoundComponent } from './page/not-found/not-found.component';
+import { CategoryComponent } from './page/category/category.component';
+import { MyCartComponent } from './page/my-cart/my-cart.component';
+import { LoginComponent } from './page/login/login.component';
+import { RegisterComponent } from './page/register/register.component';
+import { RecoveryComponent } from './page/recovery/recovery.component';
+import { ProfileComponent } from './page/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +35,13 @@ import { NotFoundComponent } from './page/not-found/not-found.component';
     TimeAgoPipe,
     HighlightDirective,
     HomeComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    CategoryComponent,
+    MyCartComponent,
+    LoginComponent,
+    RegisterComponent,
+    RecoveryComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
