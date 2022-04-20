@@ -15,6 +15,8 @@ import { TimeAgoPipe } from './pipes/time-ago.pipe';
 import { HighlightDirective } from './directives/highlight.directive';
 import { TimeInterceptor } from './interceptors/time.interceptor';
 import { TokenInterceptor } from './interceptors/token.interceptor';
+import { HomeComponent } from './page/home/home.component';
+import { NotFoundComponent } from './page/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
     NavComponent,
     ReversePipe,
     TimeAgoPipe,
-    HighlightDirective
+    HighlightDirective,
+    HomeComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
