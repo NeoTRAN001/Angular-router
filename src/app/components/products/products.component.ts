@@ -16,9 +16,6 @@ import { ProductsService } from '../../services/products.service';
 })
 export class ProductsComponent {
 
-  @Input() products: Product[] = [];
-  @Output() onLoadMore: EventEmitter<string> = new EventEmitter<string>();
-
   showProductDetail: boolean = false;
   total: number = 0;
 
@@ -26,6 +23,13 @@ export class ProductsComponent {
   productChosen: Product | null = null;
 
   statusDetail: 'loading' | 'success' | 'error' | 'init' = 'init';
+
+  @Output() onLoadMore: EventEmitter<string> = new EventEmitter<string>();
+  @Input() products: Product[] = [];
+
+  @Input() set productId(id: string | null) {
+    if(id) this.onShowDetail(id)
+  }
 
   constructor(
     private storeService: StoreService,
@@ -45,7 +49,11 @@ export class ProductsComponent {
 
   onShowDetail(id: string) {
     this.statusDetail = 'loading';
-    this.toggleProductDetail();
+
+    if(!this.showProductDetail) {
+      this.showProductDetail = true;
+    }
+
     this.productsService.getOne(id).subscribe(
       (data) => {
         this.productChosen = data;

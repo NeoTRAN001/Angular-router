@@ -9,6 +9,7 @@ import { LoginComponent } from './page/login/login.component';
 import { RegisterComponent } from './page/register/register.component';
 import { RecoveryComponent } from './page/recovery/recovery.component';
 import { ProfileComponent } from './page/profile/profile.component';
+import { ProductDetailComponent } from './page/product-detail/product-detail.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,10 @@ const routes: Routes = [
   {
     path: 'category/:id',
     component: CategoryComponent
+  },
+  {
+    path: 'product/:id',
+    component: ProductDetailComponent
   },
   {
     path: '**',
