@@ -6,7 +6,7 @@ import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
   selector: 'app-category',
-  templateUrl: './category.component.html',
+  template: `<app-products [productId]="productId" [products]="products" (onLoadMore)="loadMore()"></app-products>`,
   styleUrls: ['./category.component.scss']
 })
 export class CategoryComponent implements OnInit {
@@ -26,14 +26,14 @@ export class CategoryComponent implements OnInit {
     this.route.paramMap.pipe(
       switchMap(params => {
         this.categoryId = params.get('id');
-        if(this.categoryId)
+        if (this.categoryId)
           return this.productsService.getByCategory(this.categoryId, this.limit, this.offset);
         return [];
       })
     )
-    .subscribe(data => {
-      this.products = data;
-    });
+      .subscribe(data => {
+        this.products = data;
+      });
 
     this.route.queryParamMap.subscribe(params => {
       this.productId = params.get("product");
@@ -41,11 +41,11 @@ export class CategoryComponent implements OnInit {
   }
 
   loadMore(): void {
-    if(this.categoryId)
+    if (this.categoryId)
       this.productsService.getByCategory(this.categoryId, this.limit, this.offset)
         .subscribe(data => {
           this.products = this.products.concat(data.filter(product => product.images.length > 0));
           this.offset += this.limit;
-      });
+        });
   }
 }
