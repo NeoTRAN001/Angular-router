@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { WebsiteRoutingModule } from './website-routing.module';
 import { SharedModule } from '../shared/shared.module';
+import { QuicklinkModule } from 'ngx-quicklink';
 
 import { NavComponent } from './components/nav/nav.component';
 import { HomeComponent } from './page/home/home.component';
@@ -33,7 +34,8 @@ import { SwiperModule } from 'swiper/angular';
     CommonModule,
     WebsiteRoutingModule,
     SwiperModule,
-    SharedModule
+    SharedModule,
+    QuicklinkModule
   ]
 })
 export class WebsiteModule { }
