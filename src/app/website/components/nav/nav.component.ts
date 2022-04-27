@@ -42,8 +42,8 @@ export class NavComponent implements OnInit {
     this.activeMenu = !this.activeMenu;
   }
 
-  login() {
-    this.authService.loginAndGet('john@mail.com', 'changeme')
+  login() { // 'john@mail.com', 'changeme'
+    this.authService.loginAndGet('admin@mail.com', 'admin123')
     .subscribe(user => {
       this.router.navigate(['/profile']);
     });
